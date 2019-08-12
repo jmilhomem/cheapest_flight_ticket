@@ -9,11 +9,11 @@ This repo contains the script developed to list the cheapest flight ticket consi
 
 ## How to Install?
 1. Dependencies:  
-	1. python 3.6  
-	2. make
+	1. Python 3.6  
+	2. Execution of the make file
 
 2. OS X & Linux:  
-	1. Run: ```make ```
+	1. To install the enviroment, run: ```make ```
 
 ## How to run the program?
 
