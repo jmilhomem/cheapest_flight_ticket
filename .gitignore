@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Db files
+*.db
+*.pid
+
+# Config files
+*.ini
+config.yml
+
+# Log Files
+logs/
+*.err
+*.out
+*.log
+
+
+*.idea
