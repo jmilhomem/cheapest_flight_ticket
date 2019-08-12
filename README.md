@@ -4,7 +4,7 @@ This repo contains the script developed to list the cheapest flight ticket consi
 ## Business Requirements
 
 1. One file will be informed during the execution calling via shell.
-2. A prompt needs to show up requesting the source-destination.
+2. A prompt needs to show up requesting the origin-destination.
 3. Considering the source-destination information, the program must return the cheapest Flight Ticket, regardless the route.
 
 ## How to Install?
