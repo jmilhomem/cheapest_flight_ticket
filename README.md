@@ -19,7 +19,8 @@ This repo contains the script developed to list the cheapest flight ticket consi
 
 Firt, start your python virtualenv running the command ```source .env/bin/activate```
 
-* Run: ```make run <<file>>``` to start the main process.
+* Run: ```make run "<file_name>"``` to start the main process.
+* Inform the origin-destination: ```GRU-CDG```
 
 
 ## Testing

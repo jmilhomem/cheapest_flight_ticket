@@ -4,7 +4,7 @@ SHELL := /bin/bash
 VIRTUALENV_DIR=.env
 PYTHON=${VIRTUALENV_DIR}/bin/python
 PIP=${VIRTUALENV_DIR}/bin/pip
-file="input-file.txt"
+FILE_NAME="input-file.txt"
 
 
 all:
@@ -14,4 +14,4 @@ all:
 	$(PIP) install -r requirements.txt
 
 run:
-	python main.py $(file) 
+	python main.py $(FILE_NAME)
