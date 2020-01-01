@@ -35,7 +35,7 @@ SCL,ORL,20
 
 Firt, start your python virtualenv running the command ```source .env/bin/activate```
 
-* Run: ```make run "<file_name>"``` to start the main process.
+* Run: ```make run input-file.txt``` to start the main process.
 * Inform the origin-destination: ```GRU-CDG```
 
 
