@@ -1,5 +1,4 @@
 """Cheaper Flight module."""
-import sys
 
 
 def return_source_list(p_source, p_dataset):
@@ -12,12 +11,12 @@ def return_source_list(p_source, p_dataset):
     """
     list_ini = []
     count = 0
-    
+
     while count < len(p_dataset):
         if p_dataset[count][0] == p_source:
             list_ini.append(p_dataset[count])
 
-        count = count+1
+        count = count + 1
     return list_ini
 
 
@@ -37,7 +36,7 @@ def return_destination_list(p_destination, p_source, p_dataset):
             if p_dataset[count] not in p_source:
                 dest_list.append(p_dataset[count])
 
-        count = count+1
+        count = count + 1
     return dest_list
 
 
@@ -52,16 +51,17 @@ def return_route_list(p_routes, p_dataset, p_source, p_prefinal_routes):
     return: a list with all routes
     """
     for ini_middle in p_routes:
-        if ini_middle[0] != "GRU":
-            route_list = return_destination_list(ini_middle[0], p_source, p_dataset)
+        if ini_middle[0] != p_source:
+            route_list = return_destination_list(ini_middle[0],
+                                                 p_source,
+                                                 p_dataset)
             if route_list:
                 p_prefinal_routes.append(route_list[0])
-                new_list = return_route_list(route_list, p_dataset, p_source, p_prefinal_routes)
-                
+
     return p_prefinal_routes
 
 
-def return_prefinal_routes_lists(p_source, p_destination, p_prefinal_routes):
+def return_prefinal_routes(p_source, p_destination, p_prefinal_routes):
     """
     Return the prefinal list with all destinations informed.
 
@@ -73,35 +73,37 @@ def return_prefinal_routes_lists(p_source, p_destination, p_prefinal_routes):
     list_prefinal_routes = []
     list_prefinal_routes_str = []
     pretotal_value = None
-    last_flight = ""    
+    last_flight = ""
 
-    for mid in p_prefinal_routes:       
+    for mid in p_prefinal_routes:
         # if the route has other paths, create the datasets
-        #print("2", mid, p_source, p_destination)
-
-        if mid[0] == p_source[len(p_source)-2]:
+        if mid[0] == p_source[len(p_source) - 2]:
             if len(p_source) == 3:
-                #se a lista de prefinais for nula, cria ela
+                # se a lista de prefinais for nula, cria ela
                 if not list_prefinal_routes_str:
                     list_prefinal_routes_str.append(p_source[0])
                     list_prefinal_routes_str.append(p_source[1])
                     list_prefinal_routes_str.append(mid[1])
                     pretotal_value = int(p_source[2]) + int(mid[2])
 
-            #append new data
+            # append new data
             else:
                 list_prefinal_routes_str = p_source
-                pretotal_value = p_source[len(p_source)-1]
+                pretotal_value = p_source[len(p_source) - 1]
                 list_prefinal_routes_str.pop()
                 list_prefinal_routes_str.append(mid[1])
-                pretotal_value = pretotal_value + int(mid[2]) 
-                     
+                pretotal_value = pretotal_value + int(mid[2])
+
             list_prefinal_routes = list_prefinal_routes_str
             list_prefinal_routes.append(pretotal_value)
 
             last_flight = mid[1]
+
     if last_flight != p_destination:
-        list_prefinal_routes = return_prefinal_routes_lists(list_prefinal_routes, p_destination, p_prefinal_routes)
+        if list_prefinal_routes != []:
+            list_prefinal_routes = return_prefinal_routes(list_prefinal_routes,
+                                                          p_destination,
+                                                          p_prefinal_routes)
 
     return list_prefinal_routes
 
@@ -116,8 +118,8 @@ def return_cheapest_route(p_routes):
     value = 999
     if p_routes:
         for item in p_routes:
-            if float(item[len(item)-1]) < float(value):
-                value = item[len(item)-1]
+            if float(item[len(item) - 1]) < float(value):
+                value = item[len(item) - 1]
                 item_result = item
                 item_result.pop()
                 route = str(item_result) \
@@ -126,4 +128,4 @@ def return_cheapest_route(p_routes):
                         .replace(",", "") \
                         .replace("'", "") \
                         .replace(" ", " - ")
-    return route
+    return [route, value]
