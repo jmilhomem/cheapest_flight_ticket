@@ -1,6 +1,8 @@
 # BEXS Challenge - Cheapest Flight Ticket
 This repo contains the script developed to list the cheapest flight ticket considering a list of tickets.
 
+![alt text](https://image.freepik.com/free-vector/airplane-line-path-go-travel-route-airplane-flight-route-with-start-point-dash-line-vector_48946-60.jpg "")
+
 ## Business Context
 1. It is desired that the application considers the possible routes and its values to suggest the best route, considering the cheapest flight ticket price.
 2. Each route has a price, which should be considered inside a file as the following example.
