@@ -1,5 +1,4 @@
 """Files Manipulation."""
-import sys
 
 """
    Created At: 10/08/2019
@@ -7,6 +6,7 @@ import sys
 """
 
 def import_file(p_file) :
+	"""Import file in memory."""
     file_path = "files/" + p_file
     
     with open(file_path, "r") as file:
