@@ -79,7 +79,7 @@ def return_prefinal_routes(p_source, p_destination, p_prefinal_routes):
         # if the route has other paths, create the datasets
         if mid[0] == p_source[len(p_source) - 2]:
             if len(p_source) == 3:
-                # se a lista de prefinais for nula, cria ela
+                # if the list of prefinals is null, then create a new one
                 if not list_prefinal_routes_str:
                     list_prefinal_routes_str.append(p_source[0])
                     list_prefinal_routes_str.append(p_source[1])
